@@ -2,25 +2,26 @@
 > Desafio para ingressar como Analista de Integrações na Fluid
 
 ## Sobre o desafio
-Não será passado prazo para entrega, verifique os pré-requisitos e nos dê seu prazo, mas fique atento pois vamos avaliar mais rigorosamente seu código quanto mais demorar para entregar a partir da data em que foi feito o fork desse repositório.
+Este desafio simula uma integracao de dois sistemas, um deles fornecendo uma estrutura de dados no formato ```.csv``` com informações diárias sobre o Covid19 de 30/01/2020 à 30/03/2020, e a saída com informações acumuladas mensalmente, esperando os dados em uma estrutura no formato ```.json```. Para isso precisamos realizar o tratamento desses dados, verificando o tipo, e realizando o de/para para a estrutura de saída.
 
 ## Ações
 - Teremos duas estruturas de dados.
 - A estrutura em ```.csv``` será a estrutura de entrada na aplicação.
 - A estrutura em ```.json``` o exemplo da estrutura de saida.
+- Fornecer um ambiente de teste (Docker, Heroku, etc).
 
 ## Pré requisitos
-- Testes unitários
-- Pode utilizar a linguagem de programação de sua preferencia
+- Testes unitários.
+- Pode utilizar a linguagem de programação de sua preferencia.
 
 ## Dicas
-- [JsonLogic](http://jsonlogic.com/)
+- [JsonLogic](http://jsonlogic.com/).
 
 ## Diferenciais
-- Código bem escrito
-- Testes unitários bem feitos
-- Uso de Design Patterns
-- SOLID
+- Código bem escrito.
+- Testes unitários bem feitos.
+- Uso de Design Patterns.
+- SOLID.
 
 ## Pronto para começar o desafio?
 - Faça um "fork" desse repositório na sua conta do Github
