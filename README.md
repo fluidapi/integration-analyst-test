@@ -10,7 +10,7 @@ Este desafio simula uma integracao de dois sistemas, um deles fornecendo uma est
 - A estrutura em ```.json``` o exemplo da estrutura de saida.
 - Fornecer um ambiente de teste (Docker, Heroku, etc).
 
-## Pré requisitos
+## Pré-requisitos
 - Testes unitários.
 - Pode utilizar a linguagem de programação de sua preferencia.
 
@@ -18,10 +18,11 @@ Este desafio simula uma integracao de dois sistemas, um deles fornecendo uma est
 - [JsonLogic](http://jsonlogic.com/).
 
 ## Diferenciais
-- Código bem escrito.
-- Testes unitários bem feitos.
-- Uso de Design Patterns.
-- SOLID.
+- Código bem escrito;
+- Testes unitários bem feitos;
+- Uso de Design Patterns;
+- SOLID;
+- Fornecer um ambiente de teste (Docker, Heroku, etc).
 
 ## Pronto para começar o desafio?
 - Faça um "fork" desse repositório na sua conta do Github
