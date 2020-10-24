@@ -93,6 +93,36 @@ public class DataProcessorTest {
     }
 
     @Test
+    public void shouldNotProcessWhenDataDiretoryPathIsNull() {
+        dataProcessor.process(null, INPUT, OUTPUT);
+
+        verify(mockAppender, times(2)).doAppend(captorLoggingEvent.capture());
+        final LoggingEvent loggingEvent = captorLoggingEvent.getValue();
+        assertThat(loggingEvent.getLevel()).isEqualTo(Level.ERROR);
+        assertThat(loggingEvent.getFormattedMessage()).isEqualTo("Fail csv to json file translate. Detail: Data Directory must not be null.");
+    }
+
+    @Test
+    public void shouldNotProcessWhenDataInputFileIsNull() {
+        dataProcessor.process(PATH, null, OUTPUT);
+
+        verify(mockAppender, times(2)).doAppend(captorLoggingEvent.capture());
+        final LoggingEvent loggingEvent = captorLoggingEvent.getValue();
+        assertThat(loggingEvent.getLevel()).isEqualTo(Level.ERROR);
+        assertThat(loggingEvent.getFormattedMessage()).isEqualTo("Fail csv to json file translate. Detail: Data Input name must not be null.");
+    }
+
+    @Test
+    public void shouldNotProcessWhenDataOutputFileIsNull() {
+        dataProcessor.process(PATH, INPUT, null);
+
+        verify(mockAppender, times(2)).doAppend(captorLoggingEvent.capture());
+        final LoggingEvent loggingEvent = captorLoggingEvent.getValue();
+        assertThat(loggingEvent.getLevel()).isEqualTo(Level.ERROR);
+        assertThat(loggingEvent.getFormattedMessage()).isEqualTo("Fail csv to json file translate. Detail: Data Output name must not be null.");
+    }
+
+    @Test
     public void shouldNotProcessWhenDataWriteThrowException() throws IOException {
         CsvData csvData = CsvData.builder().date("2020-01-01").cases("1").deaths("0").build();
         JsonData jsonData = JsonData.builder().month(MONTH).cases(1).deaths(0).build();
