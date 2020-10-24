@@ -1,17 +1,22 @@
-package io.fluid.pedrazzani;
+package io.fluid.pedrazzani.service;
 
 import io.fluid.pedrazzani.model.CsvData;
 import io.fluid.pedrazzani.model.JsonData;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import static java.lang.String.format;
 import static java.util.stream.Collectors.groupingBy;
+import static org.apache.logging.log4j.util.Strings.isBlank;
+import static org.apache.logging.log4j.util.Strings.isNotBlank;
 
+@Service
 public class DataTranslator {
 
     private static final int ZERO_INT = 0;
@@ -20,15 +25,23 @@ public class DataTranslator {
         List<JsonData> jsonDataList = new ArrayList<>();
 
         Map<String, List<CsvData>> groupCsvData = dataList.stream().collect(groupingBy(this::groupByYearMounth));
-        groupCsvData.forEach((month, csvData) -> jsonDataList.add(mapToJsonDataList(month, csvData)));
+        groupCsvData.forEach((month, csvData) -> {
+            if (isNotBlank(month)) {
+                jsonDataList.add(mapToJsonDataList(month, csvData));
+            }
+        });
         jsonDataList.sort(this::sort);
 
         return jsonDataList;
     }
 
     private String groupByYearMounth(CsvData csvData) {
-        LocalDate date = LocalDate.parse(csvData.getDate(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        return format("%s-%02d", date.getYear(), date.getMonthValue());
+        try {
+            LocalDate date = LocalDate.parse(csvData.getDate(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            return format("%s-%02d", date.getYear(), date.getMonthValue());
+        } catch (DateTimeParseException e) {
+            return "";
+        }
     }
 
     private JsonData mapToJsonDataList(String month, List<CsvData> csvDataList) {
