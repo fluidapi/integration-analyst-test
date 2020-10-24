@@ -1,12 +1,12 @@
-#Desafio Fluid - Analista de integrações
+# Desafio Fluid - Analista de integrações
 ## Marcelo Pedrazzani
-###Ambiente
+### Ambiente
 
 * Java 1.8
 * Apache Maven 3.6.3
 * Docker 19.03.8
 
-###Execução
+### Execução
 Na pasta raiz do projeto executar os seguintes comandos:
 ````
 mvn clean package
