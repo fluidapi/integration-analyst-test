@@ -1,40 +1,27 @@
 # Desafio Fluid - Analista de integrações
 > Desafio para ingressar como Analista de Integrações na Fluid
 
-## Sobre o desafio
-Este desafio simula uma integracao de dois sistemas, um deles fornecendo uma estrutura de dados no formato ```.csv``` com informações diárias sobre o Covid19 de 30/01/2020 à 30/03/2020, e a saída com informações acumuladas mensalmente, esperando os dados em uma estrutura no formato ```.json```. Para isso precisamos realizar o tratamento desses dados, verificando o tipo, e realizando o de/para para a estrutura de saída.
+## Proposta da solução
+A solução apresentada busca resolver de forma simplificada o mapeamento e contabilização de casos e mortes causadas pelo COVID-19 de acordo com cada mês. Esta solução simula o recebimento de um arquivo ```csv``` com um compilado de dados, e emite um arquivo ```json``` com a soma de casos e mortes causadas pela doença, separados pelos meses e anos, através do mapeamento dos meses, e subsequente soma dos referidos casos e mortes para cada um, através do uso das funções .map() e .reduce() do Javascript.
 
-## Ações
-- Teremos duas estruturas de dados.
-- A estrutura em ```.csv``` será a estrutura de entrada na aplicação.
-- A estrutura em ```.json``` o exemplo da estrutura de saida.
-- Fornecer um ambiente de teste (Docker, Heroku, etc).
+## Como rodar a aplicação
+- Faça o clone do projeto em uma pasta de sua preferência
+- Acesse a pasta ```node``` via command e execute o comando npm install para instalar dependências
+- Execute o comando ```node integration.js```
+- O arquivo de resultado será gerado na data ```data``` com o nome ```output-result.json```
+- Para executar testes unitários, acesse a pasta nome e execute o comando ```npm test```
 
-## Pré-requisitos
-- Testes unitários.
-- Pode utilizar a linguagem de programação de sua preferencia.
+## Executar a aplicação em Docker
+- Certifique que o Docker esteja instalado em sua máquina
+- Acesse a pasta ```node``` via cmd
+- Execute o comando ```docker build -t node-app .```
+- Após a criação da imagem, execute o comando ```docker run -dp 3000:3000 node-app``` para rodar a aplicação.
+- O arquivo de resultado estará disponível na pasta ```data```
 
-## Dicas
-- [JsonLogic](http://jsonlogic.com/).
+## Funcionalidades
+- Leitura de arquivo CSV
+- Processamento de dados obtidos no CSV
+- Criação de arquivo JSON
 
-## Diferenciais
-- Código bem escrito;
-- Testes unitários bem feitos;
-- Uso de Design Patterns;
-- SOLID;
-- Fornecer um ambiente de teste (Docker, Heroku, etc).
-
-## Pronto para começar o desafio?
-- Faça um "fork" desse repositório na sua conta do Github
-- Crie uma branch com o seu nome e sobrenome ex: ```fulano-de-tal```
-- Após completar o desafio, crie um "pull request" nesse repositório comparando a sua branch com a master
-- Receberemos uma notificação do seu pull request, faremos a correção da sua solução e entraremos em contato com o email da conta do github em que foi executada o desafio
-
-## FAQ
-- Aonde estão os assets?
-
-**Os assets estão neste mesmo reposotório na pasta ```data/```**
-
-- Tenho mais dúvidas, com quem posso entrar em contato?
-
-**Entre em contato com Lucas França (lucas.franca@fluidapi.io)**
+## Melhorias Futuras
+[ ] Leitura dinâmica do caminho do arquivo CSV
