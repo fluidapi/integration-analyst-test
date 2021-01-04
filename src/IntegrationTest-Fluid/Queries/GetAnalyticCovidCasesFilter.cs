@@ -4,8 +4,7 @@ namespace IntegrationTest_Fluid.Queries
 {
     public class GetAnalyticCovidCasesFilter : IQuery
     {
+        public string month { get; set; }
         public string uf { get; set; }
-        public int month { get; set; }
-        public int year { get; set; }
     }
 }

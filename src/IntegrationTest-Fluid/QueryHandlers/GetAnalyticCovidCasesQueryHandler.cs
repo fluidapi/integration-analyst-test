@@ -4,6 +4,7 @@ using IntegrationTest_Fluid.Queries;
 using IntegrationTest_Fluid.Results;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace IntegrationTest_Fluid.QueryHandlers
 {
@@ -20,17 +21,27 @@ namespace IntegrationTest_Fluid.QueryHandlers
         {
             var data = _csvContext.GetCsvData<CovidData>("Resources/input.csv");
 
-            foreach (var item in data)
-            {
-                yield return new GetAnalyticCovidCasesResult
+            var result = data
+                .Select(x => new GetAnalyticCovidCasesResult
                 {
-                    cases = Convert.ToInt32(item.cases),
-                    date = item.date,
-                    uf = item.uf,
-                    deaths = Convert.ToInt32(item.deaths),
-                    time = item.time
-                };
+                    Cases = x.Cases,
+                    Date = x.Date,
+                    Deaths = x.Deaths,
+                    Uf = x.Uf
+                });
+
+            if (!string.IsNullOrEmpty(filter?.month))
+            {
+                result = result
+                    .Where(x => x.Date.ToString("yyyy-MM") == filter.month);
             }
+            if (!string.IsNullOrEmpty(filter?.uf))
+            {
+                result = result
+                    .Where(x => x.Uf == filter.uf);
+            }
+
+            return result;
         }
     }
 }

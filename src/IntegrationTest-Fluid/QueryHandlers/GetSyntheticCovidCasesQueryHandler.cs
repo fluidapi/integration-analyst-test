@@ -24,9 +24,9 @@ namespace IntegrationTest_Fluid.QueryHandlers
             var result = data
                 .Select(x => new
                 {
-                    month = Convert.ToDateTime(x.date).ToString("yyyy-MM"),
-                    x.cases,
-                    x.deaths
+                    month = Convert.ToDateTime(x.Date).ToString("yyyy-MM"),
+                    x.Cases,
+                    x.Deaths
                 })
                 .GroupBy(x => new
                 {
@@ -35,8 +35,8 @@ namespace IntegrationTest_Fluid.QueryHandlers
                 .Select(x => new GetSyntheticCovidCasesResult
                 {
                     month = x.Key.month,
-                    cases = x.Sum(y => y.cases),
-                    deaths = x.Sum(y => y.deaths)
+                    cases = x.Sum(y => y.Cases),
+                    deaths = x.Sum(y => y.Deaths)
                 });
 
             if(!string.IsNullOrEmpty(filter?.month))
