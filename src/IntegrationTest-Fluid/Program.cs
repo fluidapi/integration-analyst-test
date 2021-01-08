@@ -14,7 +14,13 @@ namespace IntegrationTest_Fluid
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>()
+                        .UseUrls(urls: "http://*:5000");
                 });
+            // Host.CreateDefaultBuilder(args)
+            //     .UseStartup<Startup>()
+            //     // params string[] urls
+            //     .UseUrls(urls: "http://*:5000")
+            //     .Build();
     }
 }
