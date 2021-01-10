@@ -1,0 +1,35 @@
+name: heroku
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  IMAGE_NAME: covid-fluidapi-spring
+  HEROKU_REGISTRY: registry.heroku.com
+  HEROKU_PROCESS_TYPE: web
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build image
+        run: docker build . --file src/main/docker/Dockerfile --tag $IMAGE_NAME
+
+      - name: Log into registry
+        run: docker login -u _ -p ${{secrets.HEROKU_API_KEY}} registry.heroku.com
+
+      - name: Push image
+        env:
+          HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
+        run: |
+          IMAGE_ID=$HEROKU_REGISTRY/$IMAGE_NAME/$HEROKU_PROCESS_TYPE
+          echo IMAGE_ID=$IMAGE_ID
+          docker tag $IMAGE_NAME $IMAGE_ID
+          docker push $IMAGE_ID
+          curl https://cli-assets.heroku.com/install.sh | sh
+          heroku container:release $HEROKU_PROCESS_TYPE -a $IMAGE_NAME
