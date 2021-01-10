@@ -1,4 +1,5 @@
 # Desafio Fluid - Analista de integrações
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=arkanjoms_integration-analyst-test&metric=alert_status)](https://sonarcloud.io/dashboard?id=arkanjoms_integration-analyst-test)
 > Desafio para ingressar como Analista de Integrações na Fluid
 
 ## Testando a aplicação
