@@ -1,6 +1,15 @@
 # Desafio Fluid - Analista de integrações
 > Desafio para ingressar como Analista de Integrações na Fluid
 
+## Testando a aplicação
+
+Para Testar a aplicação foi criado um script bash que executa o método http `POST` no ambiente de teste implantado no heroku e apresenta o resultado no console.
+Exemplo de utilização do script:
+
+```bash
+$ bash test.sh
+```
+
 ## Sobre o desafio
 Este desafio simula uma integracao de dois sistemas, um deles fornecendo uma estrutura de dados no formato ```.csv``` com informações diárias sobre o Covid19 de 30/01/2020 à 30/03/2020, e a saída com informações acumuladas mensalmente, esperando os dados em uma estrutura no formato ```.json```. Para isso precisamos realizar o tratamento desses dados, verificando o tipo, e realizando o de/para para a estrutura de saída.
 
