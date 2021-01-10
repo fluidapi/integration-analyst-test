@@ -1,4 +1,5 @@
 # Desafio Fluid - Analista de integrações
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=arkanjoms_integration-analyst-test&metric=alert_status)](https://sonarcloud.io/dashboard?id=arkanjoms_integration-analyst-test)
 > Desafio para ingressar como Analista de Integrações na Fluid
 
 ## Testando a aplicação
@@ -9,6 +10,8 @@ Exemplo de utilização do script:
 ```bash
 $ bash test.sh
 ```
+
+> Url da documentação com openapi http://covid-fluidapi-spring.herokuapp.com/swagger-ui.html
 
 ## Sobre o desafio
 Este desafio simula uma integracao de dois sistemas, um deles fornecendo uma estrutura de dados no formato ```.csv``` com informações diárias sobre o Covid19 de 30/01/2020 à 30/03/2020, e a saída com informações acumuladas mensalmente, esperando os dados em uma estrutura no formato ```.json```. Para isso precisamos realizar o tratamento desses dados, verificando o tipo, e realizando o de/para para a estrutura de saída.
