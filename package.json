@@ -1,0 +1,21 @@
+{
+  "name": "testes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "mocha test/main.spec --exit"
+  },
+  "author": "Gabriel Sanches",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "csv-parse": "^4.15.1",
+    "express": "^4.16.4",
+    "fs": "0.0.1-security"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-subset": "^1.6.0",
+    "mocha": "^6.2.3"
+  }
+}
