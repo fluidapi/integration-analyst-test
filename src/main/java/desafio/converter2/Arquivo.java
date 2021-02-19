@@ -15,7 +15,7 @@ import java.util.List;
 
 public class Arquivo {
     public static void ler() {
-        List<Covid> covid = readCsvFile("C:/Users/guilhermem/Desktop/ProjectModelo/desafio/src/main/resources/input.csv");
+        List<Covid> covid = readCsvFile("/home/lucas/Applications/integration-analyst-test/src/main/resources/input.csv");
         String jsonString = imprimirParaJson(covid);
         System.out.println(covid);
         System.out.println(U.formatJson(jsonString));

@@ -9,7 +9,7 @@ public class Arquivo {
 
         Scanner leitor = null;
         try {
-            leitor = new Scanner(new FileReader("C:/Users/guilhermem/Desktop/ProjectModelo/desafio/src/main/resources/input.csv"));
+            leitor = new Scanner(new FileReader("/home/lucas/Applications/integration-analyst-test/src/main/resources/input.csv"));
             while (leitor.hasNextLine()) {
                 String linha = leitor.nextLine().trim();
                 if(!linha.contains("date")){
